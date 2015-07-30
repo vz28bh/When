@@ -387,14 +387,15 @@ class When extends \DateTime
         $dateLooper = clone $this->startDate;
 
         // add the start date to the list of occurrences
-        if ($this->occursOn($dateLooper))
-        {
-            $this->addOccurrence($this->generateTimeOccurrences($dateLooper));
-        }
-        else
-        {
-            throw new InvalidStartDate();
-        }
+        $this->addOccurrence($this->generateTimeOccurrences($dateLooper));
+//        if ($this->occursOn($dateLooper))
+//        {
+//            $this->addOccurrence($this->generateTimeOccurrences($dateLooper));
+//        }
+//        else
+//        {
+//            throw new InvalidStartDate();
+//        }
 
         while ($dateLooper < $this->until && count($this->occurrences) < $this->count)
         {
